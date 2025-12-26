@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-app.use(cors({ origin: "https://teamsyncc-production.up.railway.app/", credentials: true }));
+app.use(cors({ origin: "https://teamsyncc-production.up.railway.app", credentials: true }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/team", teamRoutes);
