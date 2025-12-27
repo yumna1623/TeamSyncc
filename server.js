@@ -17,24 +17,36 @@ const app = express();
 app.use(express.json());
 // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 // app.use(cors({ origin: "https://teamsyncc-production.up.railway.app", credentials: true }));
-const allowedOrigins = [
-  "https://team-sync-ecru.vercel.app",                   // local dev
-  "https://teamsyncc-production.up.railway.app" // deployed frontend
-];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // allow requests with no origin (like Postman or mobile apps)
-    if(!origin) return callback(null, true);
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",                 // local frontend
+      "https://team-sync-ecru.vercel.app"      // vercel frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+  })
+);
+// const allowedOrigins = [
+//   "https://team-sync-ecru.vercel.app",                   // local dev
+//   "https://teamsyncc-production.up.railway.app" // deployed frontend
+// ];
+// app.use(cors({
+//   origin: function(origin, callback) {
+//     // allow requests with no origin (like Postman or mobile apps)
+//     if(!origin) return callback(null, true);
 
-    if(allowedOrigins.indexOf(origin) === -1) {
-      const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  credentials: true
-}));
+//     if(allowedOrigins.indexOf(origin) === -1) {
+//       const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+//       return callback(new Error(msg), false);
+//     }
+//     return callback(null, true);
+//   },
+//   credentials: true
+// }));
+
 
 
 app.use("/api/auth", authRoutes);
