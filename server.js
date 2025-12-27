@@ -18,7 +18,7 @@ app.use(express.json());
 // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 // app.use(cors({ origin: "https://teamsyncc-production.up.railway.app", credentials: true }));
 const allowedOrigins = [
-  "http://localhost:5173",                   // local dev
+  "https://team-sync-ecru.vercel.app",                   // local dev
   "https://teamsyncc-production.up.railway.app" // deployed frontend
 ];
 
