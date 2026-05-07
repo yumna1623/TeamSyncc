@@ -23,7 +23,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://spm-frontend-5vw74sbfo-yumna1623s-projects.vercel.app",
-      "https://team-sync-ecru.vercel.app"
+      // "https://team-sync-ecru.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
