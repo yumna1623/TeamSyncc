@@ -21,8 +21,9 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",                 // local frontend
-      "https://team-sync-ecru.vercel.app"      // vercel frontend
+      "http://localhost:5173",
+      "https://spm-frontend-5vw74sbfo-yumna1623s-projects.vercel.app",
+      "https://team-sync-ecru.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
